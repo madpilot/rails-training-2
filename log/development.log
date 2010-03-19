@@ -1,0 +1,750 @@
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (5.6ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (6.8ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateStocks (20100318173727)
+  [4;36;1mSQL (0.9ms)[0m   [0;1mCREATE TABLE "stocks" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "code" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100318173727')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("stocks")[0m
+  [4;36;1mStock Load (4.0ms)[0m   [0;1mSELECT * FROM "stocks" [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateStocks (20100318173727)
+Migrating to CreatePrices (20100318174958)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mCREATE TABLE "prices" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "date" date, "open_price" float, "close_price" float, "low_price" float, "high_price" float, "value" integer, "stock_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100318174958')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("prices")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("stocks")[0m
+  [4;36;1mStock Create (0.8ms)[0m   [0;1mINSERT INTO "stocks" ("updated_at", "code", "created_at") VALUES('2010-03-18 17:57:39', 'BHP', '2010-03-18 17:57:39')[0m
+  [4;35;1mStock Load (0.7ms)[0m   [0mSELECT * FROM "stocks" LIMIT 1[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing StocksController#index (for 192.168.10.1 at 2010-03-19 02:13:11) [GET]
+
+ActionView::MissingTemplate (Missing template stocks/index.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing StocksController#new (for 192.168.10.1 at 2010-03-19 02:13:24) [GET]
+
+ActionView::MissingTemplate (Missing template stocks/new.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing StocksController#create (for 192.168.10.1 at 2010-03-19 02:13:26) [GET]
+
+ActionView::MissingTemplate (Missing template stocks/create.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing StocksController#index (for 192.168.10.1 at 2010-03-19 02:17:33) [GET]
+Rendering stocks/index
+Completed in 13ms (View: 11, DB: 0) | 200 OK [http://192.168.10.2/stocks]
+
+
+Processing StocksController#show (for 192.168.10.1 at 2010-03-19 02:17:39) [GET]
+  Parameters: {"id"=>"3"}
+Rendering stocks/show
+Completed in 9ms (View: 7, DB: 0) | 200 OK [http://192.168.10.2/stocks/3]
+
+
+Processing StocksController#3 (for 192.168.10.1 at 2010-03-19 02:17:46) [GET]
+  Parameters: {"id"=>"edi"}
+
+ActionController::UnknownAction (No action responded to 3. Actions: create, delete, destroy, edit, index, new, show, and update):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing StocksController#edit (for 192.168.10.1 at 2010-03-19 02:17:49) [GET]
+  Parameters: {"id"=>"3"}
+Rendering stocks/edit
+Completed in 8ms (View: 6, DB: 0) | 200 OK [http://192.168.10.2/stocks/3/edit]
+
+
+Processing StocksController#show (for 192.168.10.1 at 2010-03-19 02:17:53) [GET]
+  Parameters: {"id"=>"3"}
+Rendering stocks/show
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://192.168.10.2/stocks/3]
+
+
+Processing StocksController#create (for 192.168.10.1 at 2010-03-19 02:18:26) [POST]
+  Parameters: {"POST"=>nil}
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+
+Rendered rescues/_trace (42.7ms)
+Rendered rescues/_request_and_response (2.1ms)
+Rendering rescues/layout (unprocessable_entity)
+
+
+Processing StocksController#create (for 192.168.10.1 at 2010-03-19 02:19:03) [POST]
+  Parameters: {"POST"=>nil}
+Rendering stocks/create
+Completed in 11ms (View: 10, DB: 0) | 200 OK [http://192.168.10.2/stocks]
+
+
+Processing StocksController#create (for 192.168.10.1 at 2010-03-19 02:19:06) [POST]
+  Parameters: {"POST"=>nil}
+Rendering stocks/create
+Completed in 5ms (View: 1, DB: 0) | 200 OK [http://192.168.10.2/stocks]
+
+
+Processing StocksController#create (for 192.168.10.1 at 2010-03-19 02:19:11) [POST]
+  Parameters: {"POST"=>nil}
+Rendering stocks/create
+Completed in 7ms (View: 3, DB: 0) | 200 OK [http://192.168.10.2/stocks]
+
+
+Processing StocksController#1 (for 192.168.10.1 at 2010-03-19 02:19:19) [POST]
+  Parameters: {"PUT"=>nil}
+
+ActionController::UnknownAction (No action responded to 1. Actions: create, delete, destroy, edit, index, new, show, and update):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing StocksController#update (for 192.168.10.1 at 2010-03-19 02:19:32) [PUT]
+  Parameters: {"id"=>"1"}
+Rendering stocks/update
+Completed in 17ms (View: 11, DB: 0) | 200 OK [http://192.168.10.2/stocks/1]
+
+
+Processing StocksController#destroy (for 192.168.10.1 at 2010-03-19 02:19:40) [DELETE]
+  Parameters: {"id"=>"1"}
+Rendering stocks/destroy
+Completed in 10ms (View: 7, DB: 0) | 200 OK [http://192.168.10.2/stocks/1]
+
+
+Processing StocksController#index (for 192.168.10.1 at 2010-03-19 02:21:50) [DELETE]
+Rendering stocks/index
+Completed in 20ms (View: 16, DB: 0) | 200 OK [http://192.168.10.2/stocks]
+
+
+Processing StocksController#destroy (for 192.168.10.1 at 2010-03-19 02:21:59) [DELETE]
+  Parameters: {"id"=>"1"}
+Rendering stocks/destroy
+Completed in 7ms (View: 2, DB: 0) | 200 OK [http://192.168.10.2/stocks/1]
+
+
+Processing StocksController#1 (for 192.168.10.1 at 2010-03-19 02:22:02) [DELETE]
+  Parameters: {"id"=>"delete"}
+
+ActionController::UnknownAction (No action responded to 1. Actions: create, delete, destroy, edit, index, new, show, and update):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing StocksController#1 (for 192.168.10.1 at 2010-03-19 02:22:08) [DELETE]
+  Parameters: {"id"=>"delete"}
+
+ActionController::UnknownAction (No action responded to 1. Actions: create, delete, destroy, edit, index, new, show, and update):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing StocksController#delete (for 192.168.10.1 at 2010-03-19 02:22:11) [GET]
+  Parameters: {"id"=>"1"}
+
+ActionView::MissingTemplate (Missing template stocks/delete.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing StocksController#index (for 192.168.10.1 at 2010-03-19 02:31:51) [GET]
+  [4;36;1mStock Load (1.3ms)[0m   [0;1mSELECT * FROM "stocks" [0m
+Rendering template within layouts/application
+Rendering stocks/index
+Completed in 27ms (View: 14, DB: 1) | 200 OK [http://192.168.10.2/stocks]
+
+
+Processing StocksController#show (for 192.168.10.1 at 2010-03-19 02:34:56) [GET]
+  Parameters: {"id"=>"1"}
+
+StandardError ({"action"=>"show", "id"=>"1", "controller"=>"stocks"}):
+  app/controllers/stocks_controller.rb:11:in `show'
+
+Rendered rescues/_trace (35.3ms)
+Rendered rescues/_request_and_response (1.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing StocksController#show (for 192.168.10.1 at 2010-03-19 02:35:12) [GET]
+  Parameters: {"id"=>"1", "query"=>"foo"}
+
+StandardError ({"action"=>"show", "id"=>"1", "controller"=>"stocks", "query"=>"foo"}):
+  app/controllers/stocks_controller.rb:11:in `show'
+
+Rendered rescues/_trace (38.8ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing StocksController#1 (for 192.168.10.1 at 2010-03-19 02:35:47) [GET]
+  Parameters: {"id"=>"foo"}
+
+ActionController::UnknownAction (No action responded to 1. Actions: create, delete, destroy, edit, index, new, show, and update):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing StocksController#1 (for 192.168.10.1 at 2010-03-19 02:36:16) [GET]
+  Parameters: {"id"=>"foo"}
+
+ActionController::UnknownAction (No action responded to 1. Actions: create, delete, destroy, edit, index, new, show, and update):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing StocksController#1 (for 192.168.10.1 at 2010-03-19 02:36:19) [GET]
+  Parameters: {"id"=>"foo"}
+
+ActionController::UnknownAction (No action responded to 1. Actions: create, delete, destroy, edit, index, new, show, and update):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing StocksController#12 (for 192.168.10.1 at 2010-03-19 02:36:24) [GET]
+  Parameters: {"id"=>"foo"}
+
+ActionController::UnknownAction (No action responded to 12. Actions: create, delete, destroy, edit, index, new, show, and update):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing StocksController#asd (for 192.168.10.1 at 2010-03-19 02:36:28) [GET]
+  Parameters: {"id"=>"foo"}
+
+ActionController::UnknownAction (No action responded to asd. Actions: create, delete, destroy, edit, index, new, show, and update):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing StocksController#show (for 192.168.10.1 at 2010-03-19 02:37:18) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mStock Load (0.6ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering stocks/show
+Completed in 42ms (View: 20, DB: 1) | 200 OK [http://192.168.10.2/stocks/1]
+
+
+Processing StocksController#show (for 192.168.10.1 at 2010-03-19 02:37:45) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mStock Load (0.4ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering stocks/show
+Completed in 109ms (View: 99, DB: 0) | 200 OK [http://192.168.10.2/stocks/1]
+
+
+Processing StocksController#show (for 192.168.10.1 at 2010-03-19 02:37:53) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mStock Load (0.2ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 2) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Stock with ID=2):
+  app/controllers/stocks_controller.rb:11:in `show'
+
+Rendered rescues/_trace (42.1ms)
+Rendered rescues/_request_and_response (2.1ms)
+Rendering rescues/layout (not_found)
+
+
+Processing StocksController#show (for 192.168.10.1 at 2010-03-19 02:38:39) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mStock Load (1.0ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 2) [0m
+
+NameError (uninitialized constant ActiveRecord::NotFound):
+  app/controllers/stocks_controller.rb:12:in `show'
+
+Rendered rescues/_trace (36.0ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing StocksController#show (for 192.168.10.1 at 2010-03-19 02:38:45) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mStock Load (1.0ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 2) [0m
+
+NoMethodError (undefined method `index_url' for #<StocksController:0xb6f4e618>):
+  app/controllers/stocks_controller.rb:13:in `show'
+
+Rendered rescues/_trace (85.4ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing StocksController#show (for 192.168.10.1 at 2010-03-19 02:39:28) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mStock Load (1.2ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 2) [0m
+Redirected to http://192.168.10.2:3000/stocks
+Completed in 18ms (DB: 1) | 302 Found [http://192.168.10.2/stocks/2]
+
+
+Processing StocksController#index (for 192.168.10.1 at 2010-03-19 02:39:28) [GET]
+  [4;36;1mStock Load (2.0ms)[0m   [0;1mSELECT * FROM "stocks" [0m
+Rendering template within layouts/application
+Rendering stocks/index
+Completed in 33ms (View: 19, DB: 2) | 200 OK [http://192.168.10.2/stocks]
+
+
+Processing StocksController#show (for 192.168.10.1 at 2010-03-19 02:41:38) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mStock Load (0.3ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering stocks/show
+Completed in 8ms (View: 2, DB: 0) | 200 OK [http://192.168.10.2/stocks/1]
+
+
+Processing StocksController#show (for 192.168.10.1 at 2010-03-19 02:41:40) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mStock Load (0.1ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 2) [0m
+Rendering stocks/show (404)
+
+ActionView::TemplateError (undefined method `code' for nil:NilClass) on line #3 of app/views/stocks/show.html.erb:
+1: <h1>Stock:</h1>
+2: 
+3: <p><%= @stock.code %></p>
+
+    app/views/stocks/show.html.erb:3
+    app/controllers/stocks_controller.rb:13:in `show'
+
+Rendered rescues/_trace (39.2ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing StocksController#show (for 192.168.10.1 at 2010-03-19 02:42:15) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mStock Load (0.5ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering errors/404 (404)
+Completed in 33ms (View: 16, DB: 0) | 404 Not Found [http://192.168.10.2/stocks/2]
+
+
+Processing StocksController#show (for 192.168.10.1 at 2010-03-19 02:42:42) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mStock Load (0.3ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering errors/404 (404)
+Completed in 8ms (View: 1, DB: 0) | 404 Not Found [http://192.168.10.2/stocks/2]
+
+
+Processing StocksController#show (for 192.168.10.1 at 2010-03-19 02:42:46) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mStock Load (1.0ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering errors/404 (404)
+Completed in 34ms (View: 1, DB: 1) | 404 Not Found [http://192.168.10.2/stocks/2]
+
+
+Processing StocksController#show (for 192.168.10.1 at 2010-03-19 02:43:53) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mStock Load (0.7ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering errors/404 (404)
+Completed in 23ms (View: 3, DB: 1) | 404 Not Found [http://192.168.10.2/stocks/2]
+
+
+Processing StocksController#new (for 192.168.10.1 at 2010-03-19 02:47:34) [GET]
+Rendering template within layouts/application
+Rendering stocks/new
+Rendered stocks/_form (0.8ms)
+Completed in 25ms (View: 23, DB: 0) | 200 OK [http://192.168.10.2/stocks/new]
+
+
+Processing StocksController#new (for 192.168.10.1 at 2010-03-19 02:48:20) [GET]
+Rendering template within layouts/application
+Rendering stocks/new
+Rendered stocks/_form (1.0ms)
+Completed in 31ms (View: 8, DB: 0) | 200 OK [http://192.168.10.2/stocks/new]
+
+
+Processing StocksController#new (for 192.168.10.1 at 2010-03-19 02:49:10) [GET]
+Rendering template within layouts/application
+Rendering stocks/new
+Rendered stocks/_form (0.6ms)
+Completed in 6ms (View: 3, DB: 0) | 200 OK [http://192.168.10.2/stocks/new]
+
+
+Processing StocksController#create (for 192.168.10.1 at 2010-03-19 02:49:21) [POST]
+  Parameters: {"stock"=>{"code"=>""}}
+Rendering template within layouts/application
+Rendering stocks/create
+Completed in 19ms (View: 14, DB: 0) | 200 OK [http://192.168.10.2/stocks]
+
+
+Processing StocksController#create (for 192.168.10.1 at 2010-03-19 02:51:15) [POST]
+  Parameters: {"stock"=>{"code"=>"APL"}}
+  [4;35;1mStock Create (1.8ms)[0m   [0mINSERT INTO "stocks" ("updated_at", "code", "created_at") VALUES('2010-03-18 18:51:15', 'APL', '2010-03-18 18:51:15')[0m
+
+NoMethodError (undefined method `redirect' for #<StocksController:0xb6fbd414>):
+  app/controllers/stocks_controller.rb:26:in `create'
+
+Rendered rescues/_trace (123.0ms)
+Rendered rescues/_request_and_response (2.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing StocksController#create (for 192.168.10.1 at 2010-03-19 02:51:22) [POST]
+  Parameters: {"stock"=>{"code"=>"APL"}}
+  [4;36;1mStock Create (0.6ms)[0m   [0;1mINSERT INTO "stocks" ("updated_at", "code", "created_at") VALUES('2010-03-18 18:51:22', 'APL', '2010-03-18 18:51:22')[0m
+Redirected to http://192.168.10.2:3000/stocks/3
+Completed in 13ms (DB: 1) | 302 Found [http://192.168.10.2/stocks]
+
+
+Processing StocksController#show (for 192.168.10.1 at 2010-03-19 02:51:22) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mStock Load (0.4ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering stocks/show
+Completed in 17ms (View: 4, DB: 0) | 200 OK [http://192.168.10.2/stocks/3]
+
+
+Processing StocksController#new (for 192.168.10.1 at 2010-03-19 02:51:32) [GET]
+Rendering template within layouts/application
+Rendering stocks/new
+Rendered stocks/_form (0.4ms)
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://192.168.10.2/stocks/new]
+
+
+Processing StocksController#create (for 192.168.10.1 at 2010-03-19 02:51:38) [POST]
+  Parameters: {"stock"=>{"code"=>""}}
+
+ActiveRecord::RecordInvalid (Validation failed: Code can not be blank!):
+  app/controllers/stocks_controller.rb:25:in `create'
+
+Rendered rescues/_trace (105.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (unprocessable_entity)
+
+
+Processing StocksController#create (for 192.168.10.1 at 2010-03-19 02:52:07) [POST]
+  Parameters: {"stock"=>{"code"=>""}}
+Rendering template within layouts/application
+Rendering stocks/create
+Completed in 28ms (View: 2, DB: 0) | 200 OK [http://192.168.10.2/stocks]
+
+
+Processing StocksController#create (for 192.168.10.1 at 2010-03-19 02:52:35) [POST]
+  Parameters: {"stock"=>{"code"=>""}}
+Rendering template within layouts/application
+Rendering stocks/new
+Rendered stocks/_form (7.0ms)
+Completed in 74ms (View: 14, DB: 0) | 200 OK [http://192.168.10.2/stocks]
+
+
+Processing StocksController#create (for 192.168.10.1 at 2010-03-19 02:53:43) [POST]
+  Parameters: {"stock"=>{"code"=>""}}
+Rendering template within layouts/application
+Rendering stocks/new
+Rendered stocks/_form (1.7ms)
+Completed in 43ms (View: 18, DB: 0) | 200 OK [http://192.168.10.2/stocks]
+
+
+Processing StocksController#create (for 192.168.10.1 at 2010-03-19 02:53:46) [POST]
+  Parameters: {"stock"=>{"code"=>""}}
+Rendering template within layouts/application
+Rendering stocks/new
+Rendered stocks/_form (1.3ms)
+Completed in 90ms (View: 5, DB: 0) | 200 OK [http://192.168.10.2/stocks]
+
+
+Processing StocksController#create (for 192.168.10.1 at 2010-03-19 02:53:51) [POST]
+  Parameters: {"stock"=>{"code"=>""}}
+Rendering template within layouts/application
+Rendering stocks/new
+Rendered stocks/_form (5.0ms)
+Completed in 66ms (View: 28, DB: 0) | 200 OK [http://192.168.10.2/stocks]
+
+
+Processing StocksController#create (for 192.168.10.1 at 2010-03-19 02:54:22) [POST]
+  Parameters: {"stock"=>{"code"=>"GLA"}}
+  [4;36;1mStock Create (0.7ms)[0m   [0;1mINSERT INTO "stocks" ("updated_at", "code", "created_at") VALUES('2010-03-18 18:54:23', 'GLA', '2010-03-18 18:54:23')[0m
+Redirected to http://192.168.10.2:3000/stocks/4
+Completed in 39ms (DB: 1) | 302 Found [http://192.168.10.2/stocks]
+
+
+Processing StocksController#show (for 192.168.10.1 at 2010-03-19 02:54:23) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mStock Load (0.6ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 4) [0m
+Rendering template within layouts/application
+Rendering stocks/show
+Completed in 19ms (View: 4, DB: 1) | 200 OK [http://192.168.10.2/stocks/4]
+
+
+Processing StocksController#index (for 192.168.10.1 at 2010-03-19 02:54:29) [GET]
+  [4;36;1mStock Load (1.9ms)[0m   [0;1mSELECT * FROM "stocks" [0m
+Rendering template within layouts/application
+Rendering stocks/index
+Completed in 17ms (View: 5, DB: 2) | 200 OK [http://192.168.10.2/stocks]
+
+
+Processing StocksController#index (for 192.168.10.1 at 2010-03-19 02:55:55) [GET]
+  [4;35;1mStock Load (2.0ms)[0m   [0mSELECT * FROM "stocks" [0m
+Rendering template within layouts/application
+Rendering stocks/index
+Completed in 41ms (View: 22, DB: 2) | 200 OK [http://192.168.10.2/stocks]
+
+
+Processing StocksController#index (for 192.168.10.1 at 2010-03-19 02:56:20) [GET]
+  [4;36;1mStock Load (0.8ms)[0m   [0;1mSELECT * FROM "stocks" [0m
+Rendering template within layouts/application
+Rendering stocks/index
+Completed in 13ms (View: 7, DB: 1) | 200 OK [http://192.168.10.2/stocks]
+
+
+Processing StocksController#index (for 192.168.10.1 at 2010-03-19 02:57:26) [GET]
+  [4;35;1mStock Load (1.1ms)[0m   [0mSELECT * FROM "stocks" [0m
+Rendering template within layouts/application
+Rendering stocks/index
+Completed in 17ms (View: 10, DB: 1) | 200 OK [http://192.168.10.2/stocks]
+
+
+Processing StocksController#edit to xml (for 192.168.10.1 at 2010-03-19 02:57:34) [GET]
+  Parameters: {"id"=>"1"}
+
+ActionView::MissingTemplate (Missing template stocks/edit.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing StocksController#edit to xml (for 192.168.10.1 at 2010-03-19 02:58:17) [GET]
+  Parameters: {"id"=>"1"}
+
+ActionView::MissingTemplate (Missing template stocks/edit.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing StocksController#edit to xml (for 192.168.10.1 at 2010-03-19 02:58:18) [GET]
+  Parameters: {"id"=>"1"}
+
+ActionView::MissingTemplate (Missing template stocks/edit.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing StocksController#edit (for 192.168.10.1 at 2010-03-19 02:58:35) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/application
+Rendering stocks/edit
+
+ActionView::TemplateError (stock_url failed to generate from {:action=>"show", :controller=>"stocks", :id=>nil}, expected: {:action=>"show", :controller=>"stocks"}, diff: {:id=>nil}) on line #2 of app/views/stocks/edit.html.erb:
+1: <h1>Edit</h1>
+2: <% form_tag stock_path(@stock), :method => :put do -%>
+3:   <%= error_messages_for :stock %>
+4:   <%= render :partial => 'stocks/form' %>
+5: 
+
+    (eval):16:in `stock_path'
+    app/views/stocks/edit.html.erb:2
+
+Rendered rescues/_trace (43.7ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing StocksController#edit (for 192.168.10.1 at 2010-03-19 02:58:59) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mStock Load (1.0ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering stocks/edit
+Rendered stocks/_form (4.4ms)
+Completed in 35ms (View: 11, DB: 1) | 200 OK [http://192.168.10.2/stocks/1/edit]
+
+
+Processing StocksController#update (for 192.168.10.1 at 2010-03-19 03:00:02) [PUT]
+  Parameters: {"stock"=>{"code"=>"BHQ"}, "id"=>"1"}
+Rendering template within layouts/application
+Rendering stocks/update
+Completed in 16ms (View: 13, DB: 0) | 200 OK [http://192.168.10.2/stocks/1]
+
+
+Processing StocksController#update (for 192.168.10.1 at 2010-03-19 03:00:57) [PUT]
+  Parameters: {"stock"=>{"code"=>"BHQ"}, "id"=>"1"}
+  [4;35;1mStock Load (0.7ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 1) [0m
+  [4;36;1mStock Update (0.9ms)[0m   [0;1mUPDATE "stocks" SET "code" = 'BHQ', "updated_at" = '2010-03-18 19:00:57' WHERE "id" = 1[0m
+Redirected to http://192.168.10.2:3000/stocks/1
+Completed in 41ms (DB: 2) | 302 Found [http://192.168.10.2/stocks/1]
+
+
+Processing StocksController#show (for 192.168.10.1 at 2010-03-19 03:00:57) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mStock Load (0.6ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering stocks/show
+Completed in 16ms (View: 5, DB: 1) | 200 OK [http://192.168.10.2/stocks/1]
+
+
+Processing StocksController#update (for 192.168.10.1 at 2010-03-19 03:01:58) [PUT]
+  Parameters: {"stock"=>{"code"=>"BHW"}, "id"=>"1"}
+  [4;36;1mStock Load (1.0ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 1) [0m
+  [4;35;1mStock Update (2.0ms)[0m   [0mUPDATE "stocks" SET "code" = 'BHW', "updated_at" = '2010-03-18 19:01:58' WHERE "id" = 1[0m
+Redirected to http://192.168.10.2:3000/stocks/1
+Completed in 44ms (DB: 3) | 302 Found [http://192.168.10.2/stocks/1]
+
+
+Processing StocksController#show (for 192.168.10.1 at 2010-03-19 03:01:58) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mStock Load (0.3ms)[0m   [0;1mSELECT * FROM "stocks" WHERE ("stocks"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering stocks/show
+Completed in 23ms (View: 12, DB: 0) | 200 OK [http://192.168.10.2/stocks/1]
+
+
+Processing StocksController#show (for 192.168.10.1 at 2010-03-19 03:02:02) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mStock Load (1.1ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering stocks/show
+Completed in 22ms (View: 6, DB: 1) | 200 OK [http://192.168.10.2/stocks/1]
+
+
+Processing StocksController#index (for 192.168.10.1 at 2010-03-19 03:04:10) [GET]
+  [4;36;1mStock Load (1.2ms)[0m   [0;1mSELECT * FROM "stocks" [0m
+Rendering template within layouts/application
+Rendering stocks/index
+Completed in 21ms (View: 14, DB: 1) | 200 OK [http://192.168.10.2/stocks]
+
+
+Processing StocksController#destroy (for 192.168.10.1 at 2010-03-19 03:04:14) [DELETE]
+  Parameters: {"id"=>"4"}
+Rendering template within layouts/application
+Rendering stocks/destroy
+Completed in 25ms (View: 19, DB: 0) | 200 OK [http://192.168.10.2/stocks/4]
+
+
+Processing StocksController#destroy (for 192.168.10.1 at 2010-03-19 03:07:23) [DELETE]
+  Parameters: {"id"=>"4"}
+  [4;35;1mStock Load (0.4ms)[0m   [0mSELECT * FROM "stocks" WHERE ("stocks"."id" = 4) [0m
+  [4;36;1mStock Destroy (0.4ms)[0m   [0;1mDELETE FROM "stocks" WHERE "id" = 4[0m
+Redirected to http://192.168.10.2:3000/stocks
+Completed in 25ms (DB: 1) | 302 Found [http://192.168.10.2/stocks/4]
+
+
+Processing StocksController#index (for 192.168.10.1 at 2010-03-19 03:07:23) [GET]
+  [4;35;1mStock Load (0.9ms)[0m   [0mSELECT * FROM "stocks" [0m
+Rendering template within layouts/application
+Rendering stocks/index
+Completed in 19ms (View: 14, DB: 1) | 200 OK [http://192.168.10.2/stocks]
+
+
+Processing StocksController#index (for 192.168.10.1 at 2010-03-19 03:10:28) [GET]
+  [4;36;1mStock Load (2.2ms)[0m   [0;1mSELECT * FROM "stocks" [0m
+Rendering template within layouts/application
+Rendering stocks/index
+
+ActionView::TemplateError (No expansion found for :application) on line #4 of app/views/layouts/application.html.erb:
+1: <html>
+2:   <head>
+3:     <title>My Stocks</title>
+4:     <%= stylesheet_link_tag :application %>
+5:   </head>
+6:   <body>
+7:     <%= yield  %>
+
+    app/views/layouts/application.html.erb:4
+
+Rendered rescues/_trace (266.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing StocksController#index (for 192.168.10.1 at 2010-03-19 03:10:37) [GET]
+  [4;35;1mStock Load (2.9ms)[0m   [0mSELECT * FROM "stocks" [0m
+Rendering template within layouts/application
+Rendering stocks/index
+Completed in 45ms (View: 30, DB: 3) | 200 OK [http://192.168.10.2/stocks]
+
+
+Processing ApplicationController#index (for 192.168.10.1 at 2010-03-19 03:10:37) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing StocksController#index (for 192.168.10.1 at 2010-03-19 03:12:34) [GET]
+  [4;36;1mStock Load (3.0ms)[0m   [0;1mSELECT * FROM "stocks" [0m
+Rendering template within layouts/application
+Rendering stocks/index
+Completed in 46ms (View: 29, DB: 3) | 200 OK [http://192.168.10.2/stocks]
+
+
+Processing StocksController#index (for 192.168.10.1 at 2010-03-19 03:13:14) [GET]
+  [4;35;1mStock Load (1.3ms)[0m   [0mSELECT * FROM "stocks" [0m
+Rendering template within layouts/application
+Rendering stocks/index
+Completed in 19ms (View: 9, DB: 1) | 200 OK [http://192.168.10.2/stocks]
+  [4;36;1mStock Load (4.0ms)[0m   [0;1mSELECT * FROM "stocks" LIMIT 1[0m
+  [4;35;1mStock Load (1.4ms)[0m   [0mSELECT * FROM "stocks" LIMIT 1[0m
+  [4;36;1mStock Load (2.4ms)[0m   [0;1mSELECT * FROM "stocks" LIMIT 1[0m
+  [4;35;1mStock Load (3.7ms)[0m   [0mSELECT * FROM "stocks" LIMIT 1[0m
+  [4;36;1mStock Load (1.4ms)[0m   [0;1mSELECT * FROM "stocks" LIMIT 1[0m
+  [4;35;1mPrice Load (2.9ms)[0m   [0mSELECT * FROM "prices" WHERE ("prices".stock_id = 1) [0m

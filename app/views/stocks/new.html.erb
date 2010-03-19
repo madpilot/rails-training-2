@@ -1,0 +1,7 @@
+<h1>New</h1>
+<% form_tag stocks_path do -%>
+  <%= error_messages_for :stock %>
+  <%= render :partial => 'stocks/form' %>
+
+  <button type="submit">Save</button>
+<% end -%>

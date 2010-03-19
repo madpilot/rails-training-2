@@ -1,0 +1,7 @@
+<h1>Edit</h1>
+<% form_tag stock_path(@stock), :method => :put do -%>
+  <%= error_messages_for :stock %>
+  <%= render :partial => 'stocks/form' %>
+
+  <button type="submit">Update</button>
+<% end -%>
