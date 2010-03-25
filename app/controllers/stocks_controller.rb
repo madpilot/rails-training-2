@@ -25,13 +25,14 @@ class StocksController < ApplicationController
     @stock.save!
     redirect_to stock_path(@stock)
   rescue ActiveRecord::RecordInvalid
-    render :action => 'new'
+    render :action => 'new', :status => 422
   end
 
   # /stocks/1/edit
   # GET
   def edit
     @stock = Stock.find(params[:id])
+    raise ActiveRecord::RecordNotFound if @stock.code == 'ABC'
   end
 
   # /stocks/1

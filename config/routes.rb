@@ -39,7 +39,10 @@ ActionController::Routing::Routes.draw do |map|
   # Note: These default routes make all actions in every controller accessible via GET requests. You should
   # consider removing or commenting them out if you're using named routes and resources.
 
-  map.resources :stocks, { :member => { :delete => :get } }
+  map.resources :stocks, { :member => { :delete => :get } } do |stocks|
+    stocks.resources :prices, { :member => { :delete => :get } }
+  end
+
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
 end
